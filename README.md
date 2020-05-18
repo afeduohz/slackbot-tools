@@ -1,8 +1,7 @@
 # slackbot-tools
 Useful tools for slack bot.
-##Command
-
-###Command line interface stub
+## Command
+### Command line interface stub
 You only need to create a stub class for commands, and an annotation `@CommandPackage` which identify the package where commands defined.
 
 In additionally, you can register any `filter` to restrict the message flow. These filters are global for every messages.
@@ -35,7 +34,7 @@ You can create classes extend from AbstractCommandlet. that's all.
 
 ./commands/BasicCommand.java
 ```java
-public class BasicCommand extends AbstractCommandlet<Service> {
+public abstract class BasicCommand extends AbstractCommandlet<Service> {
 
     @Override
     public void execute(CommandContext<Service> context, String[] args) throws CommandException {
