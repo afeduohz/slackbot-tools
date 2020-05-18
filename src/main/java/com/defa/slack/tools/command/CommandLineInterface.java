@@ -57,10 +57,9 @@ public abstract class CommandLineInterface<T extends CommandService> implements 
     @Override
     public void serve(final CommandContext<T> context) throws CommandException {
         final String command = context.getStream();
-        final String principal = context.getPrincipal();
         CommandIndicator indicator = CommandIndicator.create(command);
         for (CommandFilter<T> filter : filters) {
-            filter.doFilter(service, indicator, principal);
+            filter.doFilter(context, indicator);
         }
         this.dispatch(context, indicator);
     }
